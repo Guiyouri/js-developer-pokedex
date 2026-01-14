@@ -146,6 +146,171 @@
     border-radius: 1rem;
 }
 
+.search {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.search input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+.autocomplete {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    z-index: 10;
+}
+
+.autocomplete li {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.autocomplete li:hover {
+    background: #f1f1f1;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 400px;
+    padding: 1rem;
+    position: relative;
+}
+
+.modal-content img {
+    width: 350px;      /* ajuste aqui */
+    height: 350px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+#closeModal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: #fff;
+}
+
+.modal-content h2,
+.modal-content p {
+    color: #fff;
+}
+
+#closeModal {
+    color: #fff;
+}
+
+
+/* Cores do modal por tipo */
+.modal.fire .modal-content {
+    background-color: #ee7f30;
+}
+
+.modal.water .modal-content {
+    background-color: #678fee;
+}
+
+.modal.grass .modal-content {
+    background-color: #77c850;
+}
+
+.modal.electric .modal-content {
+    background-color: #f7cf2e;
+}
+
+.modal.poison .modal-content {
+    background-color: #a040a0;
+}
+
+.modal.normal .modal-content {
+    background-color: #a6a877;
+}
+
+.modal.bug .modal-content {
+    background-color: #a8b720;
+}
+
+.modal.fairy .modal-content {
+    background-color: #f9aec7;
+}
+
+.modal.psychic .modal-content {
+    background-color: #f65687;
+}
+
+.modal.rock .modal-content {
+    background-color: #b8a137;
+}
+
+.modal.dark .modal-content {
+    background-color: #725847;
+}
+
+.modal.dragon .modal-content {
+    background-color: #6f38f6;
+}
+
+.modal.ice .modal-content {
+    background-color: #98d5d7;
+}
+
+.modal.steel .modal-content {
+    background-color: #b9b7cf;
+}
+
+.modal.fighting .modal-content {
+    background-color: #bf3029;
+}
+
+.modal.ground .modal-content {
+    background-color: #dfbf69;
+}
+
+.modal.flying .modal-content {
+    background-color: #a98ff0;
+}
+.modal.ghost .modal-content {
+    background-color: #6e5896;
+}
+
+
+
 @media screen and (min-width: 380px) {
     .pokemons {
         grid-template-columns: 1fr 1fr;

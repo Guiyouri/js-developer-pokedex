@@ -33,3 +33,50 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
 }
+
+pokeApi.getPokemonByName = (name) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${name}`
+
+    return fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Pokemon not found')
+            }
+            return response.json()
+        })
+        .then(pokemon => {
+            return {
+                number: pokemon.id,
+                name: pokemon.name,
+                type: pokemon.types[0].type.name,
+                types: pokemon.types.map(t => t.type.name),
+                photo: pokemon.sprites.other['official-artwork'].front_default
+            }
+        })
+}
+
+pokeApi.getPokemonNames = () => {
+    const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
+
+    return fetch(url)
+        .then(response => response.json())
+        .then(json => json.results.map(pokemon => pokemon.name))
+}
+
+pokeApi.getPokemonDetails = (idOrName) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${idOrName}`
+
+    return fetch(url)
+        .then(response => response.json())
+        .then(pokemon => {
+            return {
+                number: pokemon.id,
+                name: pokemon.name,
+                types: pokemon.types.map(t => t.type.name),
+                photo: pokemon.sprites.other['official-artwork'].front_default,
+                height: pokemon.height / 10,
+                weight: pokemon.weight / 10,
+                abilities: pokemon.abilities.map(a => a.ability.name)
+            }
+        })
+}
